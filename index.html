@@ -12,50 +12,14 @@
 		<canvas id="game-canvas" width="512" height="384"></canvas>
 	  </div>
 	  <script src="pixi.js-2.2.7/bin/pixi.dev.js"></script>
+	  <script src="js/Far.js"></script>
+	  <script src="js/Mid.js"></script>
+	  <script src="js/Scroller.js"></script>
+	  <script src="js/Main.js"></script>
 	  <script>
-	  
-		function init() {
-		  console.log("init() successfully called.");
-		  stage = new PIXI.Stage(0x66FF99);
-		  renderer = PIXI.autoDetectRenderer(
-			512,
-			384,
-			{view:document.getElementById("game-canvas")}
-		  );
-		  
-		  var farTexture = PIXI.Texture.fromImage("resources/bg-far.png");
-		  //far = new PIXI.Sprite(farTexture);
-		  far = new PIXI.TilingSprite(farTexture, 512, 256);
-		  far.position.x = 0;
-		  far.position.y = 0;
-		  far.tilePosition.x = 0;
-		  far.tilePosition.y = 0;
-		  stage.addChild(far);
-		  
-		  var midTexture = PIXI.Texture.fromImage("resources/bg-mid.png");
-		  //mid = new PIXI.Sprite(midTexture);
-		  mid = new PIXI.TilingSprite(midTexture, 512, 256);
-		  mid.position.x = 0;
-		  mid.position.y = 128;
-		  mid.tilePosition.x = 0;
-		  mid.tilePosition.y = 0;
-		  stage.addChild(mid);
-		  
-		  //renderer.render(stage);
-		  
-		  requestAnimFrame(update);
-		}
-		
-		function update() {
-		  //far.position.x -= 0.128;
-		  far.tilePosition.x -= 0.128;
-		  mid.tilePosition.x -= 0.64;
-
-		  renderer.render(stage);
-
-		  requestAnimFrame(update);
-		}
-		
+	  function init() {
+		main = new Main();
+	  }		
 	  </script>
 	</body>
 </html>
